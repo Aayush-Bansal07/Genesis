@@ -225,8 +225,8 @@ body {
 }
 
 .about-tag {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.7rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: #84828f;
@@ -234,8 +234,8 @@ body {
 
 /* ── Subtitle ── */
 .about-subtitle {
-  font-family: 'Cinzel', serif;
-  font-size: clamp(0.85rem, 1.6vw, 1.1rem);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
   font-style: italic;
   font-weight: 400;
   color: #84828f;
@@ -271,9 +271,9 @@ body {
 
 .genesis-letter {
   font-family: 'Cinzel', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3.5rem, 9vw, 7rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   color: #2d2a32;
   transition: color 0.6s ease, text-shadow 0.6s ease;
   cursor: default;
@@ -305,10 +305,11 @@ body {
 }
 
 .about-para {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
   line-height: 1.85;
-  color: rgba(45, 42, 50, 0.75);
+  font-weight: 400;
+  color: rgba(45, 42, 50, 0.78);
 }
 
 .about-para-accent {
@@ -423,85 +424,130 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1280px;
   z-index: 2;
 }
 
 .module-card {
-  background: rgba(45, 42, 50, 0.03);
-  border: 1px solid rgba(132, 130, 143, 0.15);
-  border-radius: 4px;
-  padding: 28px 24px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(45, 42, 50, 0.04);
+  border: 1px solid rgba(132, 130, 143, 0.18);
+  border-radius: 6px;
+  padding: 28px 26px 26px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .module-card:hover {
-  border-color: rgba(132, 130, 143, 0.3);
-  box-shadow: 0 4px 20px rgba(45, 42, 50, 0.06);
+  border-color: rgba(132, 130, 143, 0.35);
+  box-shadow: 0 6px 24px rgba(45, 42, 50, 0.08);
 }
 
 .module-card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .module-id {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.68rem;
+  font-family: 'Philosopher', serif;
+  font-size: 0.75rem;
   letter-spacing: 0.25em;
-  color: #2d2a32;
+  color: #84828f;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
-.module-status {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+.module-status-badge {
+  font-family: 'Philosopher', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
   color: #84828f;
 }
 
 .module-card-divider {
   width: 100%;
   height: 1px;
-  background: rgba(132, 130, 143, 0.15);
-  margin-bottom: 20px;
+  background: rgba(132, 130, 143, 0.12);
+  margin-bottom: 18px;
 }
 
 .module-card-body {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
+}
+
+.module-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.module-icon-container {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border: 1px solid rgba(132, 130, 143, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(45, 42, 50, 0.03);
+}
+
+.module-icon {
+  width: 20px;
+  height: 20px;
+  color: #2D2A32;
+  stroke-width: 1.5;
+}
+
+.module-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
 }
 
 .module-label {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.65rem;
+  font-family: 'Philosopher', serif;
+  font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #84828f;
 }
 
 .module-value {
-  font-family: 'Cinzel', serif;
-  font-size: 1.4rem;
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: 1.45rem;
   font-weight: 700;
   color: #2d2a32;
   letter-spacing: 0.05em;
 }
 
-.module-tracks {
+.module-track-tags {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 6px;
+  margin-top: 2px;
 }
 
-.track-item {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.82rem;
-  color: rgba(45, 42, 50, 0.7);
-  letter-spacing: 0.1em;
+.track-tag {
+  background: rgba(45, 42, 50, 0.05);
+  border: 1px solid rgba(132, 130, 143, 0.2);
+  color: #2D2A32;
+  font-family: 'Philosopher', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.track-tag:hover {
+  background: rgba(45, 42, 50, 0.1);
+  border-color: rgba(132, 130, 143, 0.4);
 }
 
 /* ── PROJECT OLYMPUS overlay — Easter Egg 6 ── */
@@ -1144,8 +1190,24 @@ body {
   background: rgba(45, 42, 50, 0.4);
   border: 1px solid rgba(132, 130, 143, 0.3);
   border-radius: 8px;
-  gap: 8px;
-  padding: 10px 6px;
+  padding: 10px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.social-box:hover {
+  color: var(--gold);
+  border-color: rgba(201, 162, 74, 0.6);
+  background: rgba(45, 42, 50, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 .flip-link {

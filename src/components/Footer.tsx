@@ -1,10 +1,48 @@
 import React, { useState } from 'react';
 
 const SOCIAL_LINKS = [
-  { label: 'IG', href: '#' },
-  { label: 'IN', href: '#' },
-  { label: 'X', href: '#' },
-  { label: 'DC', href: '#' },
+  {
+    label: 'Instagram',
+    href: '#',
+    icon: (
+      <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+      </svg>
+    ),
+  },
+  {
+    label: 'LinkedIn',
+    href: '#',
+    icon: (
+      <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Twitter / X',
+    href: '#',
+    icon: (
+      <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Discord',
+    href: '#',
+    icon: (
+      <svg className="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 10a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm8 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0z" />
+        <path d="M18.88 5a19.8 19.8 0 0 0-4.63-1.42.06.06 0 0 0-.08.04 14.36 14.36 0 0 0-.63 1.29 18.52 18.52 0 0 0-5.08 0 14.7 14.7 0 0 0-.64-1.29.07.07 0 0 0-.08-.04 19.78 19.78 0 0 0-4.63 1.42.08.08 0 0 0-.03.06c-2.9 4.31-3.69 8.52-3.3 12.67a.08.08 0 0 0 .03.06 20.08 20.08 0 0 0 6.07 3.07.07.07 0 0 0 .08-.02c.47-.64.88-1.32 1.23-2.03a.08.08 0 0 0-.04-.1 13.06 13.06 0 0 1-1.9-1c-.04-.03-.04-.08-.01-.11a9.56 9.56 0 0 0 .39-.3a.07.07 0 0 1 .07-.01 14.35 14.35 0 0 0 11.23 0 .07.07 0 0 1 .07.01c.13.1.26.2.39.3.03.03.03.08-.01.11a12.75 12.75 0 0 1-1.9 1 .08.08 0 0 0-.04.1c.35.71.76 1.39 1.23 2.03a.07.07 0 0 0 .08.02 20.08 20.08 0 0 0 6.07-3.07.08.08 0 0 0 .03-.06c.46-4.81-.32-9.02-3.3-12.67a.08.08 0 0 0-.03-.06z" />
+      </svg>
+    ),
+  },
 ];
 
 const Footer: React.FC = () => {
@@ -48,8 +86,8 @@ const Footer: React.FC = () => {
 
           <div className="social-boxes-row">
             {SOCIAL_LINKS.map((link, idx) => (
-              <a key={idx} href={link.href} className="social-box">
-                {link.label}
+              <a key={idx} href={link.href} className="social-box" aria-label={link.label}>
+                {link.icon}
               </a>
             ))}
           </div>
