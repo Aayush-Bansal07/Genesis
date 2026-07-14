@@ -1,0 +1,107 @@
+/* ═══════════════════════════════════════════
+   FIXED NAVBAR
+   ═══════════════════════════════════════════ */
+
+.fixed-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(10, 9, 8, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border-bottom: 1px solid rgba(242, 234, 217, 0.05);
+}
+
+.fixed-navbar.visible {
+  transform: translateY(0);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 40px;
+}
+
+.navbar-left,
+.navbar-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left {
+  gap: 30px;
+}
+
+.navbar-right {
+  justify-content: flex-end;
+}
+
+.navbar-middle {
+  flex: 0 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-logo {
+  height: 55px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-link {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: rgba(242, 234, 217, 0.7);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-register-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-black);
+  background-color: var(--gold);
+  text-decoration: none;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+}
+
+.nav-register-btn:hover {
+  background-color: #e0b85c;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 20px;
+  }
+
+  .navbar-left {
+    display: none;
+  }
+}
+

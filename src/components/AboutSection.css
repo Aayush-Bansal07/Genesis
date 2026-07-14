@@ -1,0 +1,556 @@
+/* ═══════════════════════════════════════════
+   ABOUT SECTION — INITIALIZATION LOG
+   ═══════════════════════════════════════════ */
+
+.about-section {
+  --bg-rotate: 0deg;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fafdf6;
+  color: #2d2a32;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 40px 80px;
+  overflow: hidden;
+}
+
+/* Glitch animation — Easter Egg 5 */
+.about-section.glitching {
+  animation: about-glitch 200ms steps(4) forwards;
+}
+
+@keyframes about-glitch {
+  0% {
+    transform: translate(0);
+    filter: none;
+  }
+
+  25% {
+    transform: translate(-2px, 1px);
+    filter: hue-rotate(15deg);
+  }
+
+  50% {
+    transform: translate(2px, -1px);
+    filter: hue-rotate(-10deg);
+  }
+
+  75% {
+    transform: translate(-1px, -1px);
+    filter: brightness(1.1);
+  }
+
+  100% {
+    transform: translate(0);
+    filter: none;
+  }
+}
+
+/* Background layers */
+.about-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  transform: rotate(var(--bg-rotate));
+  transition: transform 2s ease;
+}
+
+.about-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(45, 42, 50, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  transform: rotate(var(--bg-rotate));
+  transition: transform 2s ease;
+}
+
+.about-particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Section Tag ── */
+.about-tag-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+  z-index: 2;
+}
+
+.about-tag-line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #84828f, transparent);
+}
+
+.about-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #84828f;
+}
+
+/* ── Subtitle ── */
+.about-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  font-style: italic;
+  font-weight: 400;
+  color: #84828f;
+  letter-spacing: 0.08em;
+  margin-bottom: 60px;
+  text-align: center;
+  z-index: 2;
+}
+
+/* ── Editorial Title ── */
+.about-title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 72px;
+  cursor: default;
+  z-index: 2;
+}
+
+.about-title-line {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  letter-spacing: 0.6em;
+  text-transform: uppercase;
+  color: #84828f;
+  margin-bottom: 8px;
+}
+
+.about-title-genesis {
+  display: flex;
+  gap: clamp(8px, 2vw, 20px);
+}
+
+.genesis-letter {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #2d2a32;
+  transition: color 0.6s ease, text-shadow 0.6s ease;
+  cursor: default;
+  user-select: none;
+}
+
+.genesis-letter.greek {
+  color: #84828f;
+  text-shadow: 0 0 8px rgba(132, 130, 143, 0.3);
+}
+
+/* ── Two-column Content ── */
+.about-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  gap: 80px;
+  margin-bottom: 80px;
+  z-index: 2;
+}
+
+/* Left — Description */
+.about-description {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.about-para {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.2rem, 1.6vw, 1.45rem);
+  line-height: 1.85;
+  font-weight: 400;
+  color: rgba(45, 42, 50, 0.78);
+}
+
+.about-para-accent {
+  color: #2d2a32;
+  font-weight: 500;
+}
+
+.about-para-last {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-para-last.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cycling-word {
+  display: inline-block;
+  color: #84828f;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(132, 130, 143, 0.3);
+  transition: color 0.3s ease;
+  min-width: 100px;
+}
+
+.decode-text {
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* Right — Statue */
+.about-statue-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-statue-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-statue-img {
+  max-height: 480px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(20%) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+.about-statue-img:hover {
+  filter: grayscale(0%) contrast(1.1);
+}
+
+/* Halo — Easter Egg 7 */
+.statue-halo {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 3;
+  transition: filter 0.3s ease;
+}
+
+.statue-halo:hover {
+  filter: drop-shadow(0 0 6px rgba(234, 225, 81, 0.4));
+}
+
+.statue-halo.cracked {
+  animation: halo-pulse 2s ease-in-out infinite;
+}
+
+@keyframes halo-pulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(234, 225, 81, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px rgba(234, 225, 81, 0.6));
+  }
+}
+
+/* Blink overlay — Easter Egg 3 */
+.blink-overlay {
+  position: absolute;
+  top: 22%;
+  left: 30%;
+  width: 40%;
+  height: 4px;
+  background: rgba(45, 42, 50, 0.8);
+  border-radius: 2px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.blink-overlay.blinking {
+  opacity: 1;
+}
+
+/* ── MODULE CARDS ── */
+.module-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1280px;
+  z-index: 2;
+}
+
+.module-card {
+  position: relative;
+  overflow: hidden;
+  background: rgba(45, 42, 50, 0.04);
+  border: 1px solid rgba(132, 130, 143, 0.18);
+  border-radius: 6px;
+  padding: 28px 26px 26px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.module-card:hover {
+  border-color: rgba(132, 130, 143, 0.35);
+  box-shadow: 0 6px 24px rgba(45, 42, 50, 0.08);
+}
+
+.module-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.module-id {
+  font-family: 'Philosopher', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #84828f;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.module-status-badge {
+  font-family: 'Philosopher', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: #84828f;
+}
+
+.module-card-divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(132, 130, 143, 0.12);
+  margin-bottom: 18px;
+}
+
+.module-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.module-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.module-icon-container {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border: 1px solid rgba(132, 130, 143, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(45, 42, 50, 0.03);
+}
+
+.module-icon {
+  width: 20px;
+  height: 20px;
+  color: #2D2A32;
+  stroke-width: 1.5;
+}
+
+.module-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.module-label {
+  font-family: 'Philosopher', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #84828f;
+}
+
+.module-value {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #2d2a32;
+  letter-spacing: 0.05em;
+}
+
+.module-track-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.track-tag {
+  background: rgba(45, 42, 50, 0.05);
+  border: 1px solid rgba(132, 130, 143, 0.2);
+  color: #2D2A32;
+  font-family: 'Philosopher', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.track-tag:hover {
+  background: rgba(45, 42, 50, 0.1);
+  border-color: rgba(132, 130, 143, 0.4);
+}
+
+/* ── PROJECT OLYMPUS overlay — Easter Egg 6 ── */
+.olympus-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: olympus-in 0.4s ease;
+}
+
+@keyframes olympus-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.olympus-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.olympus-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  color: #EAE151;
+}
+
+.olympus-content h2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #fafdf6;
+}
+
+.olympus-content p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: #84828f;
+}
+
+/* ── Greek tooltip — Easter Egg 8 ── */
+.greek-tooltip {
+  position: absolute;
+  background: #2d2a32;
+  color: #EEEFA8;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  padding: 6px 14px;
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 100;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.greek-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #2d2a32;
+}
+
+/* ── Hidden Coordinates — Easter Egg 10 ── */
+.hidden-coords {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: rgba(132, 130, 143, 0.12);
+  z-index: 2;
+  user-select: none;
+}
+
+/* ── About Responsive ── */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .about-statue-col {
+    order: -1;
+  }
+
+  .about-statue-img {
+    max-height: 340px;
+  }
+
+  .module-cards {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 580px) {
+  .about-section {
+    padding: 60px 20px 48px;
+  }
+
+  .about-title-block {
+    margin-bottom: 48px;
+  }
+
+  .about-subtitle {
+    margin-bottom: 36px;
+    font-size: 0.85rem;
+  }
+
+  .genesis-letter {
+    font-size: 2.2rem;
+  }
+
+  .about-statue-img {
+    max-height: 280px;
+  }
+}
+

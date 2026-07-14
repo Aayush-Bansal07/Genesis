@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

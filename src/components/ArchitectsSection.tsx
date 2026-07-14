@@ -1,4 +1,5 @@
 import React from 'react';
+import './ArchitectsSection.css';
 
 /* ───────────────────────────────────────────
    Data — drop in real photo URLs + social links

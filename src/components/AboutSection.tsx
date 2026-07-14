@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { BorderBeam } from './ui/border-beam';
+import './AboutSection.css';
 
 /* ───────────────────────────────────────────
    About Section

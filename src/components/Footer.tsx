@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './Footer.css';
 
 const SOCIAL_LINKS = [
   { label: "Instagram", icon: "instagram", href: "#" },

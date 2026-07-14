@@ -1,0 +1,387 @@
+/* ═══════════════════════════════════════════
+   PRIZES SECTION
+   ═══════════════════════════════════════════ */
+
+.prizes-section {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #2d2a32;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0 60px;
+  overflow: hidden;
+}
+
+/* Subtle background pattern */
+.prizes-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%,
+      rgba(132, 130, 143, 0.06) 0%,
+      transparent 50%);
+  pointer-events: none;
+}
+
+/* ── Section Header ── */
+.prizes-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+  z-index: 2;
+}
+
+.prizes-tag {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #84828f;
+  margin-bottom: 12px;
+}
+
+.prizes-title {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: #fafdf6;
+  margin-bottom: 16px;
+}
+
+.prizes-title-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #84828f, transparent);
+}
+
+/* ── Main Content Layout ── */
+.prizes-content {
+  display: flex;
+  width: 100%;
+  max-width: 1300px;
+  flex: 1;
+  padding: 0 40px;
+  gap: 60px;
+  z-index: 2;
+}
+
+/* ── Left: Statue Panel ── */
+.prizes-statue-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 500px;
+}
+
+.statue-glow {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(238, 239, 168, 0.06) 0%,
+      rgba(132, 130, 143, 0.03) 40%,
+      transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.statue-wrapper {
+  position: absolute;
+  width: 100%;
+  max-width: 400px;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.92) translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.statue-wrapper.active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.statue-interactive-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+  padding: 20px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.statue-interactive-area:hover {
+  border-color: var(--god-accent);
+  box-shadow: 0 0 30px var(--god-accent), inset 0 0 15px var(--god-accent);
+  background: rgba(45, 42, 50, 0.6);
+}
+
+.statue-image {
+  position: absolute;
+  max-height: 420px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: grayscale(30%) contrast(1.1);
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.statue-wrapper.active .statue-image {
+  filter: grayscale(10%) contrast(1.15);
+}
+
+.statue-interactive-area:hover .statue-image {
+  opacity: 0;
+}
+
+.statue-description {
+  position: absolute;
+  opacity: 0;
+  color: #fafdf6;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  max-width: 85%;
+}
+
+.statue-interactive-area:hover .statue-description {
+  opacity: 1;
+}
+
+/* Statue label */
+.statue-label {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 3;
+}
+
+.statue-god-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #fafdf6;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.statue-god-subtitle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #84828f;
+}
+
+/* Corner marks */
+.corner-mark {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 4;
+}
+
+.corner-mark.top-left {
+  top: 20px;
+  left: 20px;
+  border-top: 1px solid rgba(132, 130, 143, 0.3);
+  border-left: 1px solid rgba(132, 130, 143, 0.3);
+}
+
+.corner-mark.top-right {
+  top: 20px;
+  right: 20px;
+  border-top: 1px solid rgba(132, 130, 143, 0.3);
+  border-right: 1px solid rgba(132, 130, 143, 0.3);
+}
+
+.corner-mark.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 1px solid rgba(132, 130, 143, 0.3);
+  border-left: 1px solid rgba(132, 130, 143, 0.3);
+}
+
+.corner-mark.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-bottom: 1px solid rgba(132, 130, 143, 0.3);
+  border-right: 1px solid rgba(132, 130, 143, 0.3);
+}
+
+/* ── Right: Prize List Panel ── */
+.prizes-list-panel {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 520px;
+}
+
+.prizes-list-scroll {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 8px;
+}
+
+/* Custom scrollbar */
+.prizes-list-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.prizes-list-scroll::-webkit-scrollbar-track {
+  background: rgba(132, 130, 143, 0.1);
+}
+
+.prizes-list-scroll::-webkit-scrollbar-thumb {
+  background: rgba(132, 130, 143, 0.3);
+  border-radius: 3px;
+}
+
+/* ── Prize Card ── */
+.prize-card {
+  display: flex;
+  align-items: stretch;
+  background: rgba(250, 253, 246, 0.03);
+  border: 1px solid rgba(132, 130, 143, 0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.prize-card:hover {
+  background: rgba(250, 253, 246, 0.06);
+  border-color: rgba(132, 130, 143, 0.25);
+}
+
+.prize-card.active {
+  background: rgba(250, 253, 246, 0.07);
+  border-color: rgba(238, 239, 168, 0.2);
+}
+
+/* Left indicator bar */
+.prize-card-indicator {
+  width: 3px;
+  flex-shrink: 0;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.prize-card.active .prize-card-indicator {
+  background: #eeefa8;
+}
+
+/* Card content */
+.prize-card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 28px;
+}
+
+.prize-position {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #84828f;
+  transition: color 0.3s ease;
+}
+
+.prize-card.active .prize-position {
+  color: #eeefa8;
+}
+
+.prize-money {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #fafdf6;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+/* Right accent bar */
+.prize-card-accent {
+  width: 4px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.prize-card.active .prize-card-accent {
+  opacity: 0.6;
+}
+
+/* ── Prizes Responsive ── */
+@media (max-width: 900px) {
+  .prizes-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 24px;
+    gap: 40px;
+  }
+
+  .prizes-statue-panel {
+    min-height: 350px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .prizes-list-panel {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .statue-image {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 580px) {
+  .prizes-section {
+    padding: 48px 0 40px;
+  }
+
+  .prizes-header {
+    margin-bottom: 32px;
+  }
+
+  .prize-card-content {
+    padding: 18px 20px;
+  }
+
+  .statue-god-name {
+    font-size: 1.2rem;
+  }
+}
+

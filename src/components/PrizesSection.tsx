@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './PrizesSection.css';
 
 interface PrizeEntry {
   position: string;
