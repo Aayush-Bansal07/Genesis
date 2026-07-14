@@ -16,11 +16,6 @@ const Hero = () => {
       tl.from('.hero-tagline', { opacity: 0, y: 10, duration: 0.7 }, 0.6);
       tl.from('.hero-date', { opacity: 0, duration: 0.6 }, 0.8);
       tl.from('.hero-prize', { opacity: 0, scale: 0.95, duration: 0.8 }, 0.9);
-      tl.from('.hero-bust-left', { opacity: 0, scale: 1.02, duration: 1.4 }, 0.1);
-      tl.from('.hero-semicircle', { scale: 0.85, opacity: 0, duration: 1.2 }, 0.2);
-      tl.from('.hero-bust-right', { y: 60, opacity: 0, duration: 1.1 }, 0.4);
-      tl.from('.hero-outline-text', { x: -40, opacity: 0, stagger: 0.15, duration: 1 }, 0.3);
-      tl.from('.hero-scroll', { opacity: 0, duration: 0.6 }, 1.2);
     }, heroRef);
 
     return () => ctx.revert();
