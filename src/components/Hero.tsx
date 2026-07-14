@@ -10,6 +10,7 @@ const Hero = () => {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
       tl.from('.hero-logo', { opacity: 0, y: -10, duration: 0.6 }, 0);
+      tl.from('.hero-register', { opacity: 0, y: -10, duration: 0.6 }, 0.1);
       tl.from('.hero-title-ieee', { y: 20, opacity: 0, duration: 0.7 }, 0.2);
       tl.from('.hero-title-genesis', { y: 40, opacity: 0, duration: 0.9 }, 0.3);
       tl.from('.hero-tagline', { opacity: 0, y: 10, duration: 0.7 }, 0.6);
@@ -72,8 +73,23 @@ const Hero = () => {
         <img
           src="/assets/IEEE_sb_logo.png"
           alt="IEEE SB Logo"
-          style={{ height: 'clamp(75px, 8vh, 100px)', width: 'auto', display: 'block' }}
+          style={{ height: 'clamp(100px, 12vh, 150px)', width: 'auto', display: 'block' }}
         />
+      </div>
+
+      {/* ─── TOP RIGHT: REGISTER BUTTON ─── */}
+      <div
+        className="hero-register"
+        style={{
+          position: 'absolute',
+          top: 'clamp(30px, 5vh, 50px)',
+          right: 'clamp(30px, 5vw, 60px)',
+          zIndex: 20,
+        }}
+      >
+        <a href="#register" className="nav-register-btn" style={{ fontSize: 'clamp(10px, 0.8vw, 13px)', padding: 'clamp(4px, 0.6vh, 8px) clamp(10px, 1.2vw, 14px)' }}>
+          REGISTER NOW
+        </a>
       </div>
 
       {/* ─── LEFT SIDE: TITLE + HACKATHON INFO ─── */}
@@ -91,7 +107,7 @@ const Hero = () => {
           className="hero-title-ieee"
           style={{
             fontFamily: "'Oswald', sans-serif",
-            fontSize: 'clamp(18px, 2.5vw, 36px)',
+            fontSize: 'clamp(22px, 3vw, 42px)',
             fontWeight: 600,
             textTransform: 'uppercase',
             letterSpacing: '0.25em',
@@ -107,7 +123,7 @@ const Hero = () => {
           className="hero-title-genesis"
           style={{
             fontFamily: "'Oswald', sans-serif",
-            fontSize: 'clamp(42px, 6.5vw, 100px)',
+            fontSize: 'clamp(48px, 7.5vw, 115px)',
             fontWeight: 700,
             textTransform: 'uppercase',
             letterSpacing: '-0.02em',
@@ -132,6 +148,7 @@ const Hero = () => {
             textTransform: 'uppercase',
             letterSpacing: '0.05em',
             marginTop: 'clamp(24px, 4vh, 50px)',
+            marginLeft: '-18px',
             lineHeight: 1.3,
           }}
         >
@@ -175,7 +192,7 @@ const Hero = () => {
             display: 'inline-block',
             border: '2px solid #D4AF37',
             borderRadius: '6px',
-            padding: 'clamp(10px, 1.2vh, 16px) clamp(18px, 2vw, 36px)',
+            padding: 'clamp(8px, 1vh, 12px) clamp(14px, 1.5vw, 24px)',
           }}
         >
           <span
@@ -185,7 +202,7 @@ const Hero = () => {
               fontWeight: 700,
               color: '#FF8C00',
               textTransform: 'uppercase',
-              letterSpacing: '0.06em',
+              letterSpacing: '0.02em',
             }}
           >
             ₹1,00,000 Total Prize Pool
