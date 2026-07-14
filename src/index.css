@@ -1719,3 +1719,137 @@ body {
     gap: 16px;
   }
 }
+
+/* -------------------------------------------
+   Architects Section (Missing CSS Fix)
+   ------------------------------------------- */
+.architects-section {
+  padding: 60px 20px;
+  background-color: var(--ink-black);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+.architects-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.architects-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.architects-title .word-2 {
+  color: var(--orange, #FF8C00);
+}
+
+.architects-viewport {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  /* Mask edges for smooth fade out */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.architects-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+  padding: 20px 0;
+}
+
+.architects-viewport:hover .architects-track {
+  animation-play-state: paused;
+}
+
+.arch-card {
+  width: 250px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.arch-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.arch-photo {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--gold);
+}
+
+.arch-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arch-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  color: var(--gold);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.arch-cat {
+  display: none;
+}
+
+.arch-name {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--cream);
+  margin-bottom: 5px;
+}
+
+.arch-role {
+  font-family: "Oswald", sans-serif;
+  font-size: 0.9rem;
+  color: var(--orange, #FF8C00);
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+.arch-socials {
+  display: flex;
+  gap: 15px;
+}
+
+.arch-social {
+  color: #aaa;
+  transition: color 0.2s ease;
+  width: 20px;
+  height: 20px;
+}
+
+.arch-social:hover {
+  color: var(--gold);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
