@@ -56,7 +56,7 @@ const PrizesSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="prizes-section">
+    <section id="prizes" className="prizes-section">
       {/* Section heading */}
       <div className="prizes-header">
         <span className="prizes-tag">THE SPOILS OF VICTORY</span>

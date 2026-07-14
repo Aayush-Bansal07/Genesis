@@ -1,10 +1,13 @@
 import './index.css';
 import Footer from './components/Footer';
 import PrizesSection from './components/PrizesSection';
+import AboutSection from './components/AboutSection';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <>
+      <Navbar />
       <div className="hero">
         <img className="hero-bg" src="/assets/background.png" alt="Hero Background" />
         <header className="header">
@@ -43,6 +46,7 @@ function App() {
         </div>
       </div>
 
+      <AboutSection />
       <PrizesSection />
       <Footer />
     </>

@@ -1,42 +1,15 @@
 import React, { useState } from 'react';
 
-const LETTERS_DATA = [
-  {
-    letter: 'I',
-    links: [
-      { label: 'Instagram', href: '#' },
-      { label: 'IEEE.org', href: 'https://ieee.org' },
-    ],
-  },
-  {
-    letter: 'E',
-    links: [
-      { label: 'Email Us', href: 'mailto:contact@ieeesrmap.com' },
-      { label: 'Events', href: '#' },
-    ],
-  },
-  {
-    letter: 'E',
-    links: [
-      { label: 'LinkedIn', href: '#' },
-      { label: 'YouTube', href: '#' },
-    ],
-  },
-  {
-    letter: 'E',
-    links: [
-      { label: 'Twitter / X', href: '#' },
-      { label: 'Discord', href: '#' },
-    ],
-  },
+const SOCIAL_LINKS = [
+  { label: 'IG', href: '#' },
+  { label: 'IN', href: '#' },
+  { label: 'X', href: '#' },
+  { label: 'DC', href: '#' },
 ];
 
 const Footer: React.FC = () => {
-  const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
-
-  const handleFlip = (idx: number) => {
-    setFlippedIndex(flippedIndex === idx ? null : idx);
-  };
+  const [hoveredRating, setHoveredRating] = useState<number | null>(null);
+  const [selectedRating, setSelectedRating] = useState<number | null>(null);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -44,45 +17,44 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="site-footer">
-      {/* ── Top Section: GET IN TOUCH ── */}
-      <div className="footer-top">
-        <h2 className="footer-heading">GET IN TOUCH</h2>
-        <p className="footer-subheading">HOVER OR TAP ON ANY LETTER TO CONNECT</p>
+      {/* ── Top Section: RATING & GET IN TOUCH ── */}
+      <div className="footer-top split-layout">
 
-        <div className="flip-letters-row">
-          {LETTERS_DATA.map((item, idx) => (
-            <div
-              key={idx}
-              className={`flip-card ${flippedIndex === idx ? 'flipped' : ''}`}
-              onMouseEnter={() => setFlippedIndex(idx)}
-              onMouseLeave={() => setFlippedIndex(null)}
-              onClick={() => handleFlip(idx)}
-            >
-              <div className="flip-card-inner">
-                {/* Front – the letter */}
-                <div className="flip-card-front">
-                  <span>{item.letter}</span>
-                </div>
-                {/* Back – social links */}
-                <div className="flip-card-back">
-                  {item.links.map((link, i) => (
-                    <a key={i} href={link.href} className="flip-link">
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+        {/* Left Side: Rating */}
+        <div className="footer-top-left">
+          <h2 className="footer-heading-small">RATE YOUR EXPERIENCE</h2>
+          <p className="footer-subheading">HELP US IMPROVE ヾ(≧▽≦*)o</p>
 
-          {/* Diamond icon */}
-          <div className="diamond-icon">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-              <path d="M18 2L34 18L18 34L2 18L18 2Z" fill="rgba(201,162,74,0.15)" stroke="#c9a24a" strokeWidth="1.5" />
-              <path d="M18 8L28 18L18 28L8 18L18 8Z" fill="rgba(201,162,74,0.3)" stroke="#c9a24a" strokeWidth="1" />
-            </svg>
+          <div className="rating-component">
+            {[...Array(10)].map((_, i) => (
+              <div
+                key={i}
+                className={`rating-pillar ${(hoveredRating !== null ? i <= hoveredRating : selectedRating !== null && i <= selectedRating) ? 'active' : ''}`}
+            onMouseEnter={() => setHoveredRating(i)}
+            onMouseLeave={() => setHoveredRating(null)}
+            onClick={() => setSelectedRating(i)}
+              />
+            ))}
+          </div>
+          <div className="rating-label">
+            {selectedRating !== null ? `${selectedRating + 1} / 10` : 'RATE OUT OF 10'}
           </div>
         </div>
+
+        {/* Right Side: Social Boxes */}
+        <div className="footer-top-right">
+          <h2 className="footer-heading-small">GET IN TOUCH</h2>
+          <p className="footer-subheading">CONNECT WITH US</p>
+
+          <div className="social-boxes-row">
+            {SOCIAL_LINKS.map((link, idx) => (
+              <a key={idx} href={link.href} className="social-box">
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
       </div>
 
       {/* ── Divider ── */}
