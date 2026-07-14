@@ -2,6 +2,8 @@ import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import Lightfall from './Lightfall';
 
+const LIGHTFALL_COLORS = ['#D4AF37', '#8B6914', '#3D3A38'];
+
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +37,7 @@ const Hero = () => {
       {/* ─── LIGHTFALL BACKGROUND ─── */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <Lightfall
-          colors={['#D4AF37', '#8B6914', '#3D3A38']}
+          colors={LIGHTFALL_COLORS}
           backgroundColor="#1a1714"
           speed={0.3}
           streakCount={4}
