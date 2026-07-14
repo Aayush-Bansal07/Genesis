@@ -16,6 +16,7 @@ function App() {
       <div className="section-divider section-divider-cream" aria-hidden="true" />
       <PrizesSection />
       <div className="section-divider section-divider-dark" aria-hidden="true" />
+      <ArchitectsSection />
       <Footer />
     </>
   );

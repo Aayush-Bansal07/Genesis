@@ -1170,7 +1170,7 @@ body {
 
 .site-footer {
   width: 100%;
-  min-height: 0;
+  height: 600px;
   background-color: #2d2a32;
   color: var(--cream);
   display: flex;
