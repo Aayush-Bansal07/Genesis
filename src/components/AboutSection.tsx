@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BorderBeam } from './ui/border-beam';
 
 /* ───────────────────────────────────────────
    Decode Text — Materializes from glyphs
@@ -472,45 +473,100 @@ const AboutSection: React.FC = () => {
       {/* ── Module Cards ── */}
       <div className="module-cards">
         <div className="module-card">
+          <BorderBeam
+            size={120}
+            duration={6}
+            delay={0}
+            colorFrom="#84828F"
+            colorTo="#2D2A32"
+            borderWidth={1.5}
+          />
           <div className="module-card-header">
             <span className="module-id">MODULE 01</span>
-            <span className="module-status">● ACTIVE</span>
+            <span className="module-status-badge">● ACTIVE</span>
           </div>
           <div className="module-card-divider" />
           <div className="module-card-body">
-            <span className="module-label">Duration</span>
-            <span className="module-value">
-              <DecodeText text="24 Hours" trigger={decoded} delay={1800} />
-            </span>
+            <div className="module-meta-row">
+              <div className="module-icon-container">
+                <svg className="module-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div className="module-meta-info">
+                <span className="module-label">Duration</span>
+                <span className="module-value">
+                  <DecodeText text="24 Hours" trigger={decoded} delay={1800} />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="module-card">
+          <BorderBeam
+            size={120}
+            duration={6}
+            delay={2}
+            colorFrom="#84828F"
+            colorTo="#2D2A32"
+            borderWidth={1.5}
+          />
           <div className="module-card-header">
             <span className="module-id">MODULE 02</span>
-            <span className="module-status">● ACTIVE</span>
+            <span className="module-status-badge">● ACTIVE</span>
           </div>
           <div className="module-card-divider" />
           <div className="module-card-body">
-            <span className="module-label">Teams</span>
-            <span className="module-value">
-              <DecodeText text="2–4 Members" trigger={decoded} delay={2000} />
-            </span>
+            <div className="module-meta-row">
+              <div className="module-icon-container">
+                <svg className="module-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div className="module-meta-info">
+                <span className="module-label">Teams</span>
+                <span className="module-value">
+                  <DecodeText text="2–4 Members" trigger={decoded} delay={2000} />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="module-card">
+          <BorderBeam
+            size={120}
+            duration={6}
+            delay={4}
+            colorFrom="#84828F"
+            colorTo="#2D2A32"
+            borderWidth={1.5}
+          />
           <div className="module-card-header">
             <span className="module-id">MODULE 03</span>
-            <span className="module-status">● ACTIVE</span>
+            <span className="module-status-badge">● ACTIVE</span>
           </div>
           <div className="module-card-divider" />
           <div className="module-card-body">
-            <span className="module-label">Tracks</span>
-            <div className="module-tracks">
-              <DecodeText text="AI" trigger={decoded} delay={2200} tag="span" className="track-item" />
-              <DecodeText text="Robotics" trigger={decoded} delay={2400} tag="span" className="track-item" />
-              <DecodeText text="Cybersecurity" trigger={decoded} delay={2600} tag="span" className="track-item" />
+            <div className="module-meta-row">
+              <div className="module-icon-container">
+                <svg className="module-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <div className="module-meta-info">
+                <span className="module-label">Tracks</span>
+                <div className="module-track-tags">
+                  <span className="track-tag">AI</span>
+                  <span className="track-tag">Robotics</span>
+                  <span className="track-tag">Cybersecurity</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
