@@ -11,10 +11,11 @@ function App() {
     <>
       <Navbar />
       <Hero />
-
+      <div className="section-divider section-divider-light" aria-hidden="true" />
       <AboutSection />
+      <div className="section-divider section-divider-cream" aria-hidden="true" />
       <PrizesSection />
-      <ArchitectsSection />
+      <div className="section-divider section-divider-dark" aria-hidden="true" />
       <Footer />
     </>
   );

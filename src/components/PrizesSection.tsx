@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface PrizeEntry {
   position: string;
@@ -11,44 +11,49 @@ interface PrizeEntry {
 
 const PRIZES: PrizeEntry[] = [
   {
-    position: 'GRAND WINNER',
-    prize: '₹1,00,000',
-    god: 'ZEUS',
-    image: '/assets/zeus.png',
-    accent: '#EEEFA8',
-    description: 'King of the gods, wielding the power of thunder and skies. He represents supreme innovation and mastery over the domain.'
+    position: "GRAND WINNER",
+    prize: "₹1,00,000",
+    god: "ZEUS",
+    image: "/assets/zeus.png",
+    accent: "#EEEFA8",
+    description:
+      "King of the gods, wielding the power of thunder and skies. He represents supreme innovation and mastery over the domain.",
   },
   {
-    position: '1ST RUNNER UP',
-    prize: '₹50,000',
-    god: 'ATHENA',
-    image: '/assets/athena.png',
-    accent: '#84828F',
-    description: 'Goddess of wisdom, strategy, and warfare. She favors those who build with intellect, precision, and tactical foresight.'
+    position: "1ST RUNNER UP",
+    prize: "₹50,000",
+    god: "ATHENA",
+    image: "/assets/athena.png",
+    accent: "#84828F",
+    description:
+      "Goddess of wisdom, strategy, and warfare. She favors those who build with intellect, precision, and tactical foresight.",
   },
   {
-    position: '2ND RUNNER UP',
-    prize: '₹25,000',
-    god: 'POSEIDON',
-    image: '/assets/poseidon.png',
-    accent: '#EEEFA8',
-    description: 'God of the sea and storms, commanding raw power and untamed creative waves that reshape the boundaries of technology.'
+    position: "2ND RUNNER UP",
+    prize: "₹25,000",
+    god: "POSEIDON",
+    image: "/assets/poseidon.png",
+    accent: "#EEEFA8",
+    description:
+      "God of the sea and storms, commanding raw power and untamed creative waves that reshape the boundaries of technology.",
   },
   {
-    position: '3RD RUNNER UP',
-    prize: '₹10,000',
-    god: 'APOLLO',
-    image: '/assets/apollo.png',
-    accent: '#84828F',
-    description: 'God of light, truth, and the arts. He rewards those whose creations shine with clarity, harmony, and elegant design.'
+    position: "3RD RUNNER UP",
+    prize: "₹10,000",
+    god: "APOLLO",
+    image: "/assets/apollo.png",
+    accent: "#84828F",
+    description:
+      "God of light, truth, and the arts. He rewards those whose creations shine with clarity, harmony, and elegant design.",
   },
   {
-    position: 'BEST INNOVATION',
-    prize: '₹5,000',
-    god: 'ARTEMIS',
-    image: '/assets/artemis.png',
-    accent: '#EEEFA8',
-    description: 'Goddess of the hunt and wilderness. She guides the pioneers exploring uncharted territories and finding unique solutions.'
+    position: "BEST INNOVATION",
+    prize: "₹5,000",
+    god: "ARTEMIS",
+    image: "/assets/artemis.png",
+    accent: "#EEEFA8",
+    description:
+      "Goddess of the hunt and wilderness. She guides the pioneers exploring uncharted territories and finding unique solutions.",
   },
 ];
 
@@ -71,8 +76,8 @@ const PrizesSection: React.FC = () => {
           {PRIZES.map((entry, idx) => (
             <div
               key={idx}
-              className={`statue-wrapper ${activeIndex === idx ? 'active' : ''}`}
-              style={{ '--god-accent': entry.accent } as React.CSSProperties}
+              className={`statue-wrapper ${activeIndex === idx ? "active" : ""}`}
+              style={{ "--god-accent": entry.accent } as React.CSSProperties}
             >
               <div className="statue-interactive-area">
                 <img
@@ -104,7 +109,7 @@ const PrizesSection: React.FC = () => {
             {PRIZES.map((entry, idx) => (
               <div
                 key={idx}
-                className={`prize-card ${activeIndex === idx ? 'active' : ''}`}
+                className={`prize-card ${activeIndex === idx ? "active" : ""}`}
                 onMouseEnter={() => setActiveIndex(idx)}
                 onClick={() => setActiveIndex(idx)}
               >
