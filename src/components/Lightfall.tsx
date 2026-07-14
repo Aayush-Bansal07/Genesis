@@ -337,6 +337,9 @@ const Lightfall: React.FC<LightfallProps> = ({
       if (canvas.parentElement === container) {
         container.removeChild(canvas);
       }
+      
+      const loseContextExt = gl.getExtension('WEBGL_lose_context');
+      if (loseContextExt) loseContextExt.loseContext();
     };
   }, [
     dpr, paused, colors, backgroundColor, speed, streakCount, streakWidth,

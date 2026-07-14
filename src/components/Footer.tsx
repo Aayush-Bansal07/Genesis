@@ -23,35 +23,39 @@ const RATING_TIERS = [
 const SocialIcon: React.FC<{ name: string }> = ({ name }) => {
   if (name === "instagram") {
     return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4" />
-        <circle cx="17.5" cy="6.5" r="1" className="social-icon-fill" />
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" />
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
       </svg>
     );
   }
 
   if (name === "linkedin") {
     return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.2 8.4v9.4M6.2 5.8v.1M10.4 17.8v-5.3c0-2.2 1.2-3.5 3-3.5s3 1.3 3 3.5v5.3M10.4 12.6c0-2.2 1.2-3.5 3-3.5s3 1.3 3 3.5" />
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect x="2" y="9" width="4" height="12" rx="2" />
+        <circle cx="4" cy="4" r="2" />
       </svg>
     );
   }
 
   if (name === "x") {
     return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 4.5 19 19.5M19 4.5 5 19.5" />
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+        <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
       </svg>
     );
   }
 
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7.1 8.2c2.9-1.2 6.9-1.2 9.8 0l1.3 7.1a10.3 10.3 0 0 0-3.3 1.6l-.8-1.1h-4.2l-.8 1.1a10.3 10.3 0 0 0-3.3-1.6l1.3-7.1Z" />
-      <circle cx="9.5" cy="12.2" r=".8" className="social-icon-fill" />
-      <circle cx="14.5" cy="12.2" r=".8" className="social-icon-fill" />
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" fill="currentColor" stroke="none" />
+      <path d="M14 12a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" fill="currentColor" stroke="none" />
+      <path d="M15.5 17c0 1 1.5 3 2 3c1.5 0 2.833 -1.667 3.5 -3c.667 -1.667 .5 -5.833 -1.5 -11.5c-1.457 -1.015 -3 -1.34 -4.5 -1.5l-1 2.5l-2 -2l-6 0l-2 2l-1 -2.5c-1.5 .16 -3.043 .485 -4.5 1.5c-2 5.667 -2.167 9.833 -1.5 11.5c.667 1.333 2 3 3.5 3c.5 0 2 -2 2 -3" />
+      <path d="M7 16.5c3.5 2 6.5 2 10 0" />
     </svg>
   );
 };
@@ -92,25 +96,25 @@ const Footer: React.FC = () => {
                 />
               ))}
             </div>
-            <div className="rating-meta">
-              <span className="rating-endpoint">Α´</span>
-              <div className="rating-label">
+            <div className="rating-meta" style={{ display: 'flex', alignItems: 'center', gap: '15px', marginTop: '15px', padding: '10px 0' }}>
+              <span className="rating-endpoint" style={{ fontSize: '1rem', color: '#D4AF37', fontFamily: 'Cinzel, serif' }}>Α´</span>
+              <div className="rating-label" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minWidth: '140px', height: '45px' }}>
                 {activeIndex !== null ? (
                   <>
-                    <span className="rating-score">
+                    <span className="rating-score" style={{ fontFamily: 'Share Tech Mono', fontSize: '1.2rem', color: '#FF8C00', lineHeight: 1 }}>
                       {String(activeIndex + 1).padStart(2, "0")} / 10
                     </span>
-                    <span className="rating-tier">
+                    <span className="rating-tier" style={{ fontFamily: 'Oswald', fontSize: '0.8rem', letterSpacing: '0.15em', marginTop: '4px', lineHeight: 1 }}>
                       {RATING_TIERS[activeIndex]}
                     </span>
                   </>
                 ) : (
-                  <span className="rating-tier-placeholder">
+                  <span className="rating-tier-placeholder" style={{ fontFamily: 'Oswald', fontSize: '0.8rem', letterSpacing: '0.15em', color: '#aaa' }}>
                     SELECT A SCORE
                   </span>
                 )}
               </div>
-              <span className="rating-endpoint">Ι´</span>
+              <span className="rating-endpoint" style={{ fontSize: '1rem', color: '#D4AF37', fontFamily: 'Cinzel, serif' }}>Ι´</span>
             </div>
           </div>
         </div>
